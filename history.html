@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web History</title>
+   
+    <style>
+* {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url(/images/6.jpg) center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.table {
+    width: 82vw;
+    height: 90vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.table::-webkit-scrollbar {
+    display: none;
+}
+
+.table__header {
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: #fff5;
+    padding: 0 .8rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+}
+
+.table__header .input-group:hover {
+    width: 45%;
+    background-color: #fff8;
+    box-shadow: 0 .1rem .4rem #0002;
+}
+
+.table__header .input-group input {
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.table__body {
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fffb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow: overlay;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: auto;
+    max-width: 697px;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+tbody tr.hide td,
+tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+thead th:hover {
+    color: #6c00bd;
+}
+
+thead th.active,tbody td.active {
+    color: #6c00bd;
+}
+
+</style>
+
+</head>
+
+<body>
+    <main class="table">
+        <section class="table__header">
+            <h1>Web History</h1>
+        </section>
+            <table id="table__body">
+                <thead>
+                    <tr>
+                        <th> Title </th>
+                        <th> Url </th>
+                        <th> Date </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+    </main>
+    <script>
+		function fetchHistoryList() {
+			fetch('history.json')
+			.then(response => response.json())
+			.then(data => {
+				const tableBody = document.querySelector('#table__body tbody');
+				data.forEach(history => {
+					const row = tableBody.insertRow();
+					const titleCell = row.insertCell(0);
+					const urlCell = row.insertCell(1);
+					const dateCell = row.insertCell(2);
+					titleCell.innerText = history.title;
+					urlCell.innerHTML = `<a href="${history.url}">${history.url}</a>`;
+					dateCell.innerText = history.date;
+				});
+			})
+			.catch(error => console.error(error));
+		}
+		fetchHistoryList();
+	</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <title>information page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #222;
+      }
+      .cube {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 60px 0;
+        
+      }
+      .cube .box {
+        position: relative;
+        width: 480px;
+        height: 520px;
+        background: #2e2e2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+      }
+
+      .cube .box .content {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 0 20px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 20px 4px #fff200, 0 0 0 6px rgb(255 224 0);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .cube .box .content .icon {
+        color: rgb(0, 255, 195);
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 0 0 4px #2e2e2e, 0 0 0 6px rgb(255 0 102);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5em;
+        background: #2e2e2e;
+        transition: 0.5s ease-in-out;
+        margin: 30px;
+        border-radius: 14px;
+      }
+      .icon i {
+        transform: scale(3); /* increase the size by 50% */
+      }
+      .icon i:hover {
+        color: rgb(3, 3, 3);
+      }
+
+      .cube .box:hover .content .icon {
+        background: var(--clr);
+        box-shadow: 0 0 0 4px #2e2e2e, 0 0 0 300px rgb(255 224 0);
+      }
+
+      .cube .box .content .text h3 {
+        font-size: 1.5em;
+        color: #fff;
+        font-weight: 500;
+        transition: 0.5s ease-in-out;
+        margin: 10px;
+      }
+
+      .cube .box:hover .content .text h3 {
+        color: #2e2e2e;
+      }
+
+      .cube .box .content .text p {
+        color: #777;
+        transition: 0.5s ease-in-out;
+      }
+
+      .cube .box:hover .content .text p {
+        color: #2e2e2e;
+      }
+
+      .cube .box .content .text a {
+        position: relative;
+        background: var(--clr);
+        color: #2e2e2e;
+        padding: 8px 15px;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 10px;
+        transition: 0.5s ease-in-out;
+      }
+
+      .cube .box:hover .content .text a {
+        background: #2e2e2e;
+        color: var(--clr);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cube">
+      <div class="box" style="--clr: #89ec5b">
+        <div class="content">
+          <div class="icon">
+            <i class="fab fa-firefox-browser fa-xs"></i>
+          </div>
+          <div class="text">
+            <h3>Browser</h3>
+            <p>
+              A web browser made in Python is a software application that allows users to access and navigate web pages on the internet.
+              It is built using the Python programming language and third-party libraries such as PyQt & Tkinter to create a graphical user interface.
+              The browser may include features such as tabbed browsing, bookmark management, and support for various web technologies such as HTML, CSS, and JavaScript.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box" style="--clr: #89ec5b">
+        <div class="content">
+          <div class="icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="text">
+            <h2>HTML & CSS</h2>
+            <h3>Mayuresh Khadpe</h3>
+            <p>
+
+              Works on HTML & CSS to Create Homepages & All Web Related Part.
+              Made a Fully Working Browser Front Page & graphical user interface.
+
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box" style="--clr: #89ec5b">
+        <div class="content">
+          <div class="icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <div class="text">
+            <h2>Python</h2>
+            <h3>Sarvesh Patil</h3>
+            <p>
+              
+              Works on Python to Create Browser ( Software ).
+              libraries used are PyQt to create a graphical user interface.
+              Data like History and Bookmarks are stored in the .json file format.
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
